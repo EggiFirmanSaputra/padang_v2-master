@@ -69,7 +69,7 @@ const DashboardPage: React.FC = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        "http://localhost:8080/api/user/request",
+        "https://smpadang-main-production.up.railway.app/api/user/request",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -104,7 +104,7 @@ const DashboardPage: React.FC = () => {
     toast.promise(
       axios
         .post(
-          "http://localhost:8080/api/user/request",
+          "https://smpadang-main-production.up.railway.app/api/user/request",
           {
             ...values,
             total_request: Number(values.total_request), 

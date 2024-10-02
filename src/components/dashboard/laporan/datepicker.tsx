@@ -51,7 +51,7 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({ onDateRangeChange, on
             className="px-4 py-2 border rounded-md"
             placeholderText="Pilih Tanggal"
             maxDate={today} // Disable dates after today
-            minDate={startDate} // Disable dates before startDate
+            minDate={startDate ?? undefined} // Disable dates before startDate
           />
         </div>
         <button

@@ -48,6 +48,7 @@ const formSchema = z.object({
 const UsersPage: React.FC = () => {
   const [barangIn, setBarangIn] = useState<Barang[]>([]);
   const [barang, setBarang] = useState<any[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -59,11 +60,12 @@ const UsersPage: React.FC = () => {
 
   useEffect(() => {
     const fetchBarang = async () => {
+      setLoading(true)
       try {
         const token = localStorage.getItem("token");
         const [responseBarangIn, responseBarang] = await Promise.all([
           axios.get(
-            "http://localhost:8080/api/admin/barangout",
+            "https://smpadang-main-production.up.railway.app/api/admin/barangout",
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -72,7 +74,7 @@ const UsersPage: React.FC = () => {
             }
           ),
           axios.get(
-            "http://localhost:8080/api/admin/barang",
+            "https://smpadang-main-production.up.railway.app/api/admin/barang",
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -90,6 +92,8 @@ const UsersPage: React.FC = () => {
         }
       } catch (error) {
         console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false)
       }
     };
 
@@ -102,7 +106,7 @@ const UsersPage: React.FC = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.delete(
-        `http://localhost:8080/api/admin/barangout?id=${id}`,
+        `https://smpadang-main-production.up.railway.app/api/admin/barangout?id=${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -121,7 +125,7 @@ const UsersPage: React.FC = () => {
     toast.promise(
       axios
         .post(
-          "http://localhost:8080/api/admin/barangin",
+          "https://smpadang-main-production.up.railway.app/api/admin/barangin",
           {
             ...values,
             jumlah: Number(values.jumlah), 
@@ -274,9 +278,12 @@ const UsersPage: React.FC = () => {
           </DialogContent>
         </Dialog> */}
       </div>
-      {/* Render BarangMasukTable or other components here */}
-      <BarangMasukTable data={barangIn} onDelete={handleDelete} />
-    </div>
+      {loading ? (
+        <div>Loading...</div>
+      ) : (
+        <BarangMasukTable data={barang} onDelete={handleDelete} />
+      )}
+          </div>
   );
 };
 

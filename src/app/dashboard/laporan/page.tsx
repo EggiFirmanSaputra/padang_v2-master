@@ -26,7 +26,7 @@ const DashboardPage: React.FC = () => {
     if (dateRange.startDate && dateRange.endDate) {
       const formattedStartDate = formatDate(dateRange.startDate);
       const formattedEndDate = formatDate(dateRange.endDate);
-      const url = `http://localhost:8080/api/admin/laporan?start_date=${formattedStartDate}&end_date=${formattedEndDate}`;
+      const url = `https://smpadang-main-production.up.railway.app/api/admin/laporan?start_date=${formattedStartDate}&end_date=${formattedEndDate}`;
 
       try {
         const token = localStorage.getItem("token");

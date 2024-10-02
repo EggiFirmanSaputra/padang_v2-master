@@ -55,7 +55,7 @@ const UsersPage: React.FC = () => {
     defaultValues: {
       jumlah: 0,
       barang_id: 0,
-      jumlah_stok:0,
+      // jumlah_stok:0,
     },
   });
 
@@ -65,7 +65,7 @@ const UsersPage: React.FC = () => {
         const token = localStorage.getItem("token");
         const [responseBarangIn, responseBarang] = await Promise.all([
           axios.get(
-            "http://localhost:8080/api/admin/barangin",
+            "https://smpadang-main-production.up.railway.app/api/admin/barangin",
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -74,7 +74,7 @@ const UsersPage: React.FC = () => {
             }
           ),
           axios.get(
-            "http://localhost:8080/api/admin/barang",
+            "https://smpadang-main-production.up.railway.app/api/admin/barang",
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -104,7 +104,7 @@ const UsersPage: React.FC = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.delete(
-        `http://localhost:8080/api/admin/barangin?id=${id}`,
+        `https://smpadang-main-production.up.railway.app/api/admin/barangin?id=${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -123,7 +123,7 @@ const UsersPage: React.FC = () => {
     toast.promise(
       axios
         .post(
-          "http://localhost:8080/api/admin/barangin",
+          "https://smpadang-main-production.up.railway.app/api/admin/barangin",
           {
             ...values,
             jumlah: Number(values.jumlah), 
@@ -306,7 +306,7 @@ const UsersPage: React.FC = () => {
         </Dialog>
       </div>
       {/* Render BarangMasukTable or other components here */}
-      <BarangMasukTable data={barangIn} onDelete={handleDelete} />
+      <BarangMasukTable data={barang} onDelete={handleDelete} />
     </div>
   );
 };

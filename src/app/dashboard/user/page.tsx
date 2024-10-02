@@ -414,8 +414,8 @@ const UsersPage: React.FC = () => {
                         <Input
                           placeholder="Password"
                           type={isPasswordVisible ? "text" : "password"}
-                          value={isPasswordVisible ? field.value : '*'.repeat(field.value.length)}
                           {...field}
+                          value={isPasswordVisible ? field.value ?? `` : '*'.repeat(field.value?.length ??0)}
                           className="p-6 bg-[#C6DBE0] placeholder:text-xl placeholder:text-zinc-600 text-primary text-xl rounded-full"
                         />
                         <button

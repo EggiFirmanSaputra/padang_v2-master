@@ -62,7 +62,7 @@ const UsersPage: React.FC = () => {
       try {
         const token = localStorage.getItem("token");
         const response = await axios.get(
-          "http://localhost:8080/api/admin/brand",
+          "https://smpadang-main-production.up.railway.app/api/admin/brand",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -88,7 +88,7 @@ const UsersPage: React.FC = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.delete(
-        `http://localhost:8080/api/admin/brand?id=${id}`,
+        `https://smpadang-main-production.up.railway.app/api/admin/brand?id=${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -107,7 +107,7 @@ const UsersPage: React.FC = () => {
     toast.promise(
       axios
         .post(
-          "http://localhost:8080/api/admin/brand",
+          "https://smpadang-main-production.up.railway.app/api/admin/brand",
           values,
           {
             headers: {
@@ -138,7 +138,7 @@ const UsersPage: React.FC = () => {
     toast.promise(
       axios
         .put(
-          `http://localhost:8080/api/admin/brand?id=${selectedBrand.id}`,
+          `https://smpadang-main-production.up.railway.app/api/admin/brand?id=${selectedBrand.id}`,
           values,
           {
             headers: {

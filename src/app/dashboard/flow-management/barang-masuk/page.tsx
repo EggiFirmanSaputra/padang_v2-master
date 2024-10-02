@@ -307,7 +307,7 @@ const UsersPage: React.FC = () => {
       </div>
 
       {/* Render BarangMasukTable or other components here */}
-      <BarangMasukTable data={barangIn} onDelete={handleDelete} />
+      <BarangMasukTable data={barang} onDelete={handleDelete} />
     </div>
   );
 };

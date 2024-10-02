@@ -23,7 +23,7 @@ const BarangDashboardTable: React.FC<TableProps> = ({ data }) => {
 
     axios
       .post(
-        `http://localhost:8080/api/admin/request/approve-reject?id=${id}&status=1`,
+        `https://smpadang-main-production.up.railway.app/api/admin/request/approve-reject?id=${id}&status=1`,
         { status: 1 },
         {
           headers: {
@@ -45,7 +45,7 @@ const BarangDashboardTable: React.FC<TableProps> = ({ data }) => {
 
     axios
       .post(
-        `http://localhost:8080/api/admin/request/approve-reject?id=${id}&status=2`,
+        `https://smpadang-main-production.up.railway.app/api/admin/request/approve-reject?id=${id}&status=2`,
         { status: 2 },
         {
           headers: {

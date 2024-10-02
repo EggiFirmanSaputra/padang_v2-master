@@ -104,7 +104,7 @@ const UsersPage: React.FC = () => {
           responseSupplier,
         ] = await Promise.all([
           axios.get(
-            "http://localhost:8080/api/admin/barang",
+            "https://smpadang-main-production.up.railway.app/api/admin/barang",
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -113,7 +113,7 @@ const UsersPage: React.FC = () => {
             }
           ),
           axios.get(
-            "http://localhost:8080/api/admin/brand",
+            "https://smpadang-main-production.up.railway.app/api/admin/brand",
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -122,7 +122,7 @@ const UsersPage: React.FC = () => {
             }
           ),
           axios.get(
-            "http://localhost:8080/api/admin/satuan",
+            "https://smpadang-main-production.up.railway.app/api/admin/satuan",
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -131,7 +131,7 @@ const UsersPage: React.FC = () => {
             }
           ),
           axios.get(
-            "http://localhost:8080/api/admin/supplier",
+            "https://smpadang-main-production.up.railway.app/api/admin/supplier",
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -161,7 +161,7 @@ const UsersPage: React.FC = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.delete(
-        `http://localhost:8080/api/admin/barang?id=${id}`,
+        `https://smpadang-main-production.up.railway.app/api/admin/barang?id=${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -180,7 +180,7 @@ const UsersPage: React.FC = () => {
     toast.promise(
       axios
         .post(
-          "http://localhost:8080/api/admin/barang",
+          "https://smpadang-main-production.up.railway.app/api/admin/barang",
           values,
           {
             headers: {
@@ -211,7 +211,7 @@ const UsersPage: React.FC = () => {
     toast.promise(
       axios
         .put(
-          `http://localhost:8080/api/admin/barang?id=${selectedBarang.id}`,
+          `https://smpadang-main-production.up.railway.app/api/admin/barang?id=${selectedBarang.id}`,
           values,
           {
             headers: {
