@@ -312,7 +312,7 @@ const UsersPage: React.FC = () => {
                           onValueChange={(value: string) =>
                             field.onChange(parseInt(value))
                           }
-                          defaultValue={field.value}
+                          defaultValue={field.value?.toString()}
                         >
                           <FormControl>
                             <SelectTrigger>
@@ -428,7 +428,7 @@ const UsersPage: React.FC = () => {
                         onValueChange={(value: string) =>
                           field.onChange(parseInt(value))
                         }
-                        defaultValue={field.value}
+                        defaultValue={field.value?.toString()}
                       >
                         <FormControl>
                           <SelectTrigger>
